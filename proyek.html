@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyek | AI Nusantara</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    
+    <!-- CSS Kustom -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/2173/2173475.png">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Proyek AI Nusantara: Inovasi siswa SMAN 5 Taruna Brawijaya dalam integrasi AI, budaya, dan energi terbarukan">
+    <meta name="keywords" content="Proyek AI, Inovasi Siswa, Teknologi, Budaya, Energi Terbarukan, SMAN 5 Taruna Brawijaya">
+    <meta name="author" content="Siswa SMAN 5 Taruna Brawijaya">
+</head>
+<body class="light-mode">
+    <!-- ========== VIDEO BACKGROUND ========== -->
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="indonesia.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- ========== THEME TOGGLE ========== -->
+    <div class="theme-toggle">
+        <button id="themeToggle" class="btn-theme-toggle">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <!-- ========== NAVIGASI ========== -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-robot me-2"></i>AI Nusantara
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="budaya.html">AI & Budaya</a></li>
+                    <li class="nav-item"><a class="nav-link" href="energi.html">Energi Terbarukan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="etika.html">Etika AI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="artikel.html">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="proyek.html">Proyek</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-success ms-2" href="energi.html#kalkulator">
+                            <i class="fas fa-calculator"></i> Kalkulator
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== PROYEK ========== -->
+    <section id="proyek" class="section-padding">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h2 class="text-center section-title mb-3" data-aos="fade-up">
+                        <i class="fas fa-project-diagram me-2"></i>Proyek Inovasi AI Nusantara
+                    </h2>
+                    <div class="section-subtitle text-center mb-4">
+                        <p class="lead mb-0">Kumpulan proyek inovatif siswa SMAN 5 Taruna Brawijaya yang mengintegrasikan kecerdasan artifisial dengan kearifan lokal Jawa Timur.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Filter Proyek -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="project-filters">
+                        <button class="btn btn-filter active" onclick="filterProjects('all')">
+                            <i class="fas fa-layer-group me-1"></i>Semua
+                        </button>
+                        <button class="btn btn-filter" onclick="filterProjects('ai')">
+                            <i class="fas fa-brain me-1"></i>AI & Budaya
+                        </button>
+                        <button class="btn btn-filter" onclick="filterProjects('energy')">
+                            <i class="fas fa-bolt me-1"></i>Energi
+                        </button>
+                        <button class="btn btn-filter" onclick="filterProjects('ethics')">
+                            <i class="fas fa-balance-scale me-1"></i>Etika AI
+                        </button>
+                        <button class="btn btn-filter" onclick="filterProjects('web')">
+                            <i class="fas fa-code me-1"></i>Web & Apps
+                        </button>
+                        <button class="btn btn-filter" onclick="filterProjects('iot')">
+                            <i class="fas fa-microchip me-1"></i>IoT
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Info Filter Aktif -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="filter-info text-center">
+                        <span class="badge bg-info" id="activeFilterInfo">Menampilkan semua proyek</span>
+                        <span class="badge bg-secondary ms-2" id="projectCount">6 proyek</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Galeri Proyek -->
+            <div class="row g-4" id="projectGallery">
+                <!-- Proyek 1 -->
+                <div class="col-xl-4 col-lg-6 col-md-6 project-item" data-category="ai,web" data-aos="fade-up" data-aos-delay="0">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="wayang.jpg" alt="AI Wayang" class="proyek-img">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <button class="btn btn-light btn-view" onclick="showProjectDetail('wayang')">
+                                        <i class="fas fa-eye me-1"></i>Detail
+                                    </button>
+                                    <button class="btn btn-outline-light btn-demo mt-2" onclick="showDemo('wayang')">
+                                        <i class="fas fa-play me-1"></i>Demo
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="project-badge">
+                                <span class="badge bg-success">Aktif</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-theater-masks"></i>
+                                </div>
+                                <h5 class="project-title">AI Wayang Digital</h5>
+                            </div>
+                            <p class="project-desc">Platform digitalisasi wayang kulit dengan teknologi AI untuk pelestarian budaya Jawa Timur.</p>
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Tim: 5 siswa</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>6 bulan</span>
+                                </div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="badge bg-primary">Computer Vision</span>
+                                <span class="badge bg-success">WebGL</span>
+                                <span class="badge bg-info">Three.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyek 2 -->
+                <div class="col-xl-4 col-lg-6 col-md-6 project-item" data-category="energy,iot" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="Solar Tracker AI.jpg" alt="Solar Tracker" class="proyek-img">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <button class="btn btn-light btn-view" onclick="showProjectDetail('solar')">
+                                        <i class="fas fa-eye me-1"></i>Detail
+                                    </button>
+                                    <button class="btn btn-outline-light btn-demo mt-2" onclick="showDemo('solar')">
+                                        <i class="fas fa-play me-1"></i>Demo
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="project-badge">
+                                <span class="badge bg-primary">Pengembangan</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-sun"></i>
+                                </div>
+                                <h5 class="project-title">Solar Tracker AI</h5>
+                            </div>
+                            <p class="project-desc">Sistem pelacak matahari berbasis AI untuk mengoptimalkan efisiensi panel surya secara otomatis.</p>
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Tim: 4 siswa</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>8 bulan</span>
+                                </div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="badge bg-warning">Machine Learning</span>
+                                <span class="badge bg-secondary">IoT</span>
+                                <span class="badge bg-info">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyek 3 -->
+                <div class="col-xl-4 col-lg-6 col-md-6 project-item" data-category="ai,web" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="Chatbot Budaya Jawa.jpg" alt="Chatbot Budaya" class="proyek-img">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <button class="btn btn-light btn-view" onclick="showProjectDetail('chatbot')">
+                                        <i class="fas fa-eye me-1"></i>Detail
+                                    </button>
+                                    <button class="btn btn-outline-light btn-demo mt-2" onclick="showDemo('chatbot')">
+                                        <i class="fas fa-play me-1"></i>Demo
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="project-badge">
+                                <span class="badge bg-success">Aktif</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <h5 class="project-title">Chatbot Budaya Jawa</h5>
+                            </div>
+                            <p class="project-desc">Asisten virtual yang dapat berinteraksi dan mengajarkan bahasa serta budaya Jawa kepada pengguna.</p>
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Tim: 3 siswa</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>4 bulan</span>
+                                </div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="badge bg-primary">NLP</span>
+                                <span class="badge bg-success">Dialogflow</span>
+                                <span class="badge bg-info">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyek 4 -->
+                <div class="col-xl-4 col-lg-6 col-md-6 project-item" data-category="ethics,ai" data-aos="fade-up" data-aos-delay="0">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="AI Bias Detector.jpg" alt="Bias Detector" class="proyek-img">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <button class="btn btn-light btn-view" onclick="showProjectDetail('bias')">
+                                        <i class="fas fa-eye me-1"></i>Detail
+                                    </button>
+                                    <button class="btn btn-outline-light btn-demo mt-2" onclick="showDemo('bias')">
+                                        <i class="fas fa-play me-1"></i>Demo
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="project-badge">
+                                <span class="badge bg-warning">Prototype</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h5 class="project-title">AI Bias Detector</h5>
+                            </div>
+                            <p class="project-desc">Alat pendeteksi bias dalam algoritma AI untuk memastikan keadilan dan kesetaraan dalam sistem kecerdasan buatan.</p>
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Tim: 6 siswa</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>10 bulan</span>
+                                </div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="badge bg-danger">Data Analysis</span>
+                                <span class="badge bg-info">Python</span>
+                                <span class="badge bg-secondary">Fairness</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyek 5 -->
+                <div class="col-xl-4 col-lg-6 col-md-6 project-item" data-category="energy,ai" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="Wind Pattern Analyzer.png" alt="Wind Analyzer" class="proyek-img">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <button class="btn btn-light btn-view" onclick="showProjectDetail('wind')">
+                                        <i class="fas fa-eye me-1"></i>Detail
+                                    </button>
+                                    <button class="btn btn-outline-light btn-demo mt-2" onclick="showDemo('wind')">
+                                        <i class="fas fa-play me-1"></i>Demo
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="project-badge">
+                                <span class="badge bg-secondary">Riset</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-wind"></i>
+                                </div>
+                                <h5 class="project-title">Wind Pattern Analyzer</h5>
+                            </div>
+                            <p class="project-desc">Analisis pola angin menggunakan machine learning untuk optimasi penempatan turbin angin di Jawa Timur.</p>
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Tim: 4 siswa</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>7 bulan</span>
+                                </div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="badge bg-primary">Time Series</span>
+                                <span class="badge bg-success">ML</span>
+                                <span class="badge bg-info">Data Viz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyek 6 -->
+                <div class="col-xl-4 col-lg-6 col-md-6 project-item" data-category="ai,web" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="AI Batik Generator.jpg" alt="Batik Generator" class="proyek-img">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <button class="btn btn-light btn-view" onclick="showProjectDetail('batik')">
+                                        <i class="fas fa-eye me-1"></i>Detail
+                                    </button>
+                                    <button class="btn btn-outline-light btn-demo mt-2" onclick="showDemo('batik')">
+                                        <i class="fas fa-play me-1"></i>Demo
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="project-badge">
+                                <span class="badge bg-info">Eksperimental</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <h5 class="project-title">AI Batik Generator</h5>
+                            </div>
+                            <p class="project-desc">Generator pola batik menggunakan GAN (Generative Adversarial Network) untuk kreativitas budaya.</p>
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Tim: 5 siswa</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>9 bulan</span>
+                                </div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="badge bg-primary">GAN</span>
+                                <span class="badge bg-success">Deep Learning</span>
+                                <span class="badge bg-info">TensorFlow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proyek Lainnya (Hidden by default) -->
+            <div class="row g-4 mt-2" id="moreProjects" style="display: none;">
+                <!-- Proyek 7 -->
+                <div class="col-xl-4 col-lg-6 col-md-6 project-item" data-category="energy,iot" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Smart Grid" class="proyek-img">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <button class="btn btn-light btn-view" onclick="showProjectDetail('smartgrid')">
+                                        <i class="fas fa-eye me-1"></i>Detail
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="project-badge">
+                                <span class="badge bg-primary">Pengembangan</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h5 class="project-title">Smart Grid AI</h5>
+                            </div>
+                            <p class="project-desc">Sistem grid pintar berbasis AI untuk optimasi distribusi energi terbarukan di wilayah Jawa Timur.</p>
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Tim: 6 siswa</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>12 bulan</span>
+                                </div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="badge bg-warning">IoT</span>
+                                <span class="badge bg-success">AI</span>
+                                <span class="badge bg-info">Energy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyek 8 -->
+                <div class="col-xl-4 col-lg-6 col-md-6 project-item" data-category="ai,web" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cultural AR" class="proyek-img">
+                            <div class="project-overlay">
+                                <div class="overlay-content">
+                                    <button class="btn btn-light btn-view" onclick="showProjectDetail('ar')">
+                                        <i class="fas fa-eye me-1"></i>Detail
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="project-badge">
+                                <span class="badge bg-success">Aktif</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <i class="fas fa-vr-cardboard"></i>
+                                </div>
+                                <h5 class="project-title">Cultural AR Guide</h5>
+                            </div>
+                            <p class="project-desc">Panduan budaya augmented reality untuk situs sejarah dan budaya Jawa Timur menggunakan teknologi AI.</p>
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Tim: 4 siswa</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>5 bulan</span>
+                                </div>
+                            </div>
+                            <div class="project-tags">
+                                <span class="badge bg-primary">AR</span>
+                                <span class="badge bg-success">Computer Vision</span>
+                                <span class="badge bg-info">Mobile</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <button class="btn btn-outline-primary btn-lg" id="loadMoreBtn" onclick="loadMoreProjects()">
+                        <i class="fas fa-plus me-2"></i>Muat Lebih Banyak Proyek
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="cta-box">
+                        <div class="cta-content">
+                            <h4 class="cta-title">Ingin Berkontribusi?</h4>
+                            <p class="cta-text">Bergabunglah dengan komunitas AI Nusantara dan kembangkan proyek inovatif Anda sendiri untuk memajukan teknologi dan budaya Indonesia!</p>
+                            <div class="cta-buttons">
+                                <button class="btn btn-primary btn-lg me-3" onclick="contactForm()">
+                                    <i class="fas fa-envelope me-2"></i>Hubungi Kami
+                                </button>
+                                <button class="btn btn-outline-light btn-lg" onclick="showModal('Kolaborasi', 'Untuk informasi kolaborasi, silakan kirim email ke: ai.nusantara@education.id')">
+                                    <i class="fas fa-handshake me-2"></i>Kolaborasi
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Statistik Proyek -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="project-stats">
+                        <h5 class="stats-title text-center mb-4">
+                            <i class="fas fa-chart-bar me-2"></i>Statistik Proyek
+                        </h5>
+                        <div class="row g-4">
+                            <div class="col-md-3 col-6">
+                                <div class="stat-card text-center">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-project-diagram"></i>
+                                    </div>
+                                    <h3 class="stat-number" id="totalProjects">6</h3>
+                                    <p class="stat-label">Total Proyek</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="stat-card text-center">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <h3 class="stat-number">27</h3>
+                                    <p class="stat-label">Siswa Terlibat</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="stat-card text-center">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <h3 class="stat-number">44</h3>
+                                    <p class="stat-label">Bulan Riset</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="stat-card text-center">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-trophy"></i>
+                                    </div>
+                                    <h3 class="stat-number">3</h3>
+                                    <p class="stat-label">Penghargaan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="footer-brand">
+                        <i class="fas fa-robot me-2"></i>AI Nusantara
+                    </h4>
+                    <p class="footer-desc">Inisiatif pendidikan yang mengintegrasikan kecerdasan artifisial, pelestarian budaya, dan energi terbarukan untuk pembangunan berkelanjutan di Jawa Timur, Indonesia.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" onclick="shareSocial('twitter')"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" onclick="shareSocial('instagram')"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" onclick="shareSocial('github')"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link" onclick="shareSocial('youtube')"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right me-2"></i>Beranda</a></li>
+                        <li><a href="budaya.html"><i class="fas fa-chevron-right me-2"></i>AI & Budaya</a></li>
+                        <li><a href="energi.html"><i class="fas fa-chevron-right me-2"></i>Energi Terbarukan</a></li>
+                        <li><a href="etika.html"><i class="fas fa-chevron-right me-2"></i>Etika AI</a></li>
+                        <li><a href="artikel.html"><i class="fas fa-chevron-right me-2"></i>Artikel</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Kontak & Kolaborasi</h5>
+                    <div class="contact-info">
+                        <p><i class="fas fa-school me-2"></i>SMAN 5 Taruna Brawijaya</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i>Jawa Timur, Indonesia</p>
+                        <p><i class="fas fa-envelope me-2"></i>ai.nusantara@education.id</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <button class="btn btn-outline-light btn-sm" onclick="contactForm()">
+                            <i class="fas fa-envelope me-1"></i>Kirim Pesan
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <small>&copy; 2023 AI Nusantara Initiative. Semua hak dilindungi.</small>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <small>
+                            Dibuat dengan <i class="fas fa-heart text-danger"></i> oleh Siswa SMAN 5 Taruna Brawijaya
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== CHATBOT AI ========== -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+            <span class="chatbot-notification" id="chatNotification">1</span>
+        </button>
+        
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h6><i class="fas fa-robot me-2"></i>Asisten Budaya AI</h6>
+                <button class="btn-close-chat" onclick="toggleChatbot()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatMessages">
+                <!-- Messages akan dimuat via JavaScript -->
+            </div>
+            
+            <div class="chatbot-input">
+                <input type="text" id="chatInput" placeholder="Ketik pesan..." onkeypress="handleChatKeypress(event)">
+                <button onclick="sendChatMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MODAL DETAIL ========== -->
+    <div class="modal fade" id="detailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Detail</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Konten modal akan dimuat via JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SCRIPT LIBRARIES ========== -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- JavaScript Kustom -->
+    <script src="script.js"></script>
+</body>
+</html>

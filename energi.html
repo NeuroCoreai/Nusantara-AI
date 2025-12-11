@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energi Terbarukan | AI Nusantara</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    
+    <!-- CSS Kustom -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/2173/2173475.png">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Energi Terbarukan Jawa Timur: Kearifan lokal Jawa Timur menginspirasi solusi energi terbarukan modern dengan optimisasi AI">
+    <meta name="keywords" content="Energi Terbarukan, Surya, Angin, Geothermal, Bioenergi, AI, Jawa Timur">
+    <meta name="author" content="Siswa SMAN 5 Taruna Brawijaya">
+</head>
+<body class="light-mode">
+    <!-- ========== VIDEO BACKGROUND ========== -->
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="indonesia.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- ========== THEME TOGGLE ========== -->
+    <div class="theme-toggle">
+        <button id="themeToggle" class="btn-theme-toggle">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <!-- ========== NAVIGASI ========== -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-robot me-2"></i>AI Nusantara
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="budaya.html">AI & Budaya</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="energi.html">Energi Terbarukan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="etika.html">Etika AI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="artikel.html">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="proyek.html">Proyek</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-success ms-2" href="energi.html#kalkulator">
+                            <i class="fas fa-calculator"></i> Kalkulator
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== ENERGI TERBARUKAN ========== -->
+    <section id="energi" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center section-title mb-5" data-aos="fade-up">
+                <i class="fas fa-leaf me-2"></i>Energi Terbarukan Jawa Timur
+            </h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-8 mx-auto text-center">
+                    <p class="lead">Kearifan lokal Jawa Timur menginspirasi solusi energi terbarukan modern dengan optimisasi AI.</p>
+                </div>
+            </div>
+            
+            <!-- Peta Interaktif -->
+            <div class="row mb-5" data-aos="fade-up">
+                <div class="col-12">
+                    <div class="card shadow border-0">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0"><i class="fas fa-map me-2"></i>Peta Potensi Energi Jawa Timur</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="energy-map">
+                                <div class="map-container">
+                                    <div class="map-region" data-region="surabaya" onclick="showRegionDetail('surabaya')">
+                                        <div class="region-pin">S</div>
+                                        <div class="region-name">Surabaya</div>
+                                        <div class="region-info">PLTS Urban</div>
+                                    </div>
+                                    <div class="map-region" data-region="malang" onclick="showRegionDetail('malang')">
+                                        <div class="region-pin">M</div>
+                                        <div class="region-name">Malang</div>
+                                        <div class="region-info">PLTS Highland</div>
+                                    </div>
+                                    <div class="map-region" data-region="banyuwangi" onclick="showRegionDetail('banyuwangi')">
+                                        <div class="region-pin">B</div>
+                                        <div class="region-name">Banyuwangi</div>
+                                        <div class="region-info">Angin & Surya</div>
+                                    </div>
+                                    <div class="map-region" data-region="madura" onclick="showRegionDetail('madura')">
+                                        <div class="region-pin">MD</div>
+                                        <div class="region-name">Madura</div>
+                                        <div class="region-info">PLTB</div>
+                                    </div>
+                                    <div class="map-region" data-region="ponorogo" onclick="showRegionDetail('ponorogo')">
+                                        <div class="region-pin">P</div>
+                                        <div class="region-name">Ponorogo</div>
+                                        <div class="region-info">Bioenergi</div>
+                                    </div>
+                                    <div class="map-region" data-region="lumajang" onclick="showRegionDetail('lumajang')">
+                                        <div class="region-pin">L</div>
+                                        <div class="region-name">Lumajang</div>
+                                        <div class="region-info">Geothermal</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3" id="mapDetail">
+                                <!-- Detail region akan muncul di sini -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Jenis Energi -->
+            <div class="row mb-5">
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up">
+                    <div class="energy-card" onclick="showEnergyDetail('solar')">
+                        <i class="fas fa-sun"></i>
+                        <h5>Energi Surya</h5>
+                        <p>AI optimalkan penempatan panel surya</p>
+                        <span class="energy-badge">4.8 kWh/m²/hari</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="energy-card" onclick="showEnergyDetail('wind')">
+                        <i class="fas fa-wind"></i>
+                        <h5>Energi Angin</h5>
+                        <p>Analisis pola angin untuk turbin</p>
+                        <span class="energy-badge">5-7 m/detik</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="energy-card" onclick="showEnergyDetail('geothermal')">
+                        <i class="fas fa-fire"></i>
+                        <h5>Panas Bumi</h5>
+                        <p>Monitoring geothermal dengan AI</p>
+                        <span class="energy-badge">1.200+ MW</span>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="energy-card" onclick="showEnergyDetail('bioenergy')">
+                        <i class="fas fa-seedling"></i>
+                        <h5>Bioenergi</h5>
+                        <p>Konversi limbah menjadi energi</p>
+                        <span class="energy-badge">40% Potensi</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Kalkulator Energi -->
+            <div class="row">
+                <div class="col-md-10 mx-auto">
+                    <div class="card shadow" id="kalkulator">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0"><i class="fas fa-calculator me-2"></i>Kalkulator Energi Hijau</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold">Jumlah Penghuni Rumah:</label>
+                                        <input type="range" class="form-range" min="1" max="10" value="4" id="sliderPenghuni">
+                                        <div class="d-flex justify-content-between">
+                                            <small>1 orang</small>
+                                            <span id="sliderValue" class="fw-bold">4 orang</span>
+                                            <small>10+ orang</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold">Lokasi di Jawa Timur:</label>
+                                        <select class="form-select" id="selectLokasi">
+                                            <option value="surabaya">Surabaya (Perkotaan)</option>
+                                            <option value="malang">Malang (Dataran Tinggi)</option>
+                                            <option value="banyuwangi">Banyuwangi (Pesisir)</option>
+                                            <option value="madura">Madura (Pulau)</option>
+                                            <option value="ponorogo">Ponorogo (Pedalaman)</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold">Luas Atap/Ruangan (m²):</label>
+                                        <input type="number" class="form-control" id="luasAtap" value="50" min="10" max="500">
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold">Jenis Energi:</label>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="checkSurya" checked>
+                                                    <label class="form-check-label" for="checkSurya">
+                                                        <i class="fas fa-sun text-warning me-1"></i> Panel Surya
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="checkAngin">
+                                                    <label class="form-check-label" for="checkAngin">
+                                                        <i class="fas fa-wind text-info me-1"></i> Turbin Angin
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="checkGeothermal">
+                                                    <label class="form-check-label" for="checkGeothermal">
+                                                        <i class="fas fa-fire text-danger me-1"></i> Geothermal
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="checkBioenergy">
+                                                    <label class="form-check-label" for="checkBioenergy">
+                                                        <i class="fas fa-seedling text-success me-1"></i> Bioenergi
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-success w-100 py-2" onclick="hitungEnergi()">
+                                        <i class="fas fa-bolt me-2"></i>Hitung Potensi Energi
+                                    </button>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div id="hasilKalkulator" class="mt-4">
+                                        <h6 class="text-center mb-3">Hasil Perhitungan</h6>
+                                        <canvas id="energyChart" width="400" height="300"></canvas>
+                                        <div class="mt-3" id="hasilDetail"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="footer-brand">
+                        <i class="fas fa-robot me-2"></i>AI Nusantara
+                    </h4>
+                    <p class="footer-desc">Inisiatif pendidikan yang mengintegrasikan kecerdasan artifisial, pelestarian budaya, dan energi terbarukan untuk pembangunan berkelanjutan di Jawa Timur, Indonesia.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" onclick="shareSocial('twitter')"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" onclick="shareSocial('instagram')"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" onclick="shareSocial('github')"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link" onclick="shareSocial('youtube')"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right me-2"></i>Beranda</a></li>
+                        <li><a href="budaya.html"><i class="fas fa-chevron-right me-2"></i>AI & Budaya</a></li>
+                        <li><a href="energi.html"><i class="fas fa-chevron-right me-2"></i>Energi Terbarukan</a></li>
+                        <li><a href="etika.html"><i class="fas fa-chevron-right me-2"></i>Etika AI</a></li>
+                        <li><a href="artikel.html"><i class="fas fa-chevron-right me-2"></i>Artikel</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Kontak & Kolaborasi</h5>
+                    <div class="contact-info">
+                        <p><i class="fas fa-school me-2"></i>SMAN 5 Taruna Brawijaya</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i>Jawa Timur, Indonesia</p>
+                        <p><i class="fas fa-envelope me-2"></i>ai.nusantara@education.id</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <button class="btn btn-outline-light btn-sm" onclick="contactForm()">
+                            <i class="fas fa-envelope me-1"></i>Kirim Pesan
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <small>&copy; 2023 AI Nusantara Initiative. Semua hak dilindungi.</small>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <small>
+                            Dibuat dengan <i class="fas fa-heart text-danger"></i> oleh Siswa SMAN 5 Taruna Brawijaya
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== CHATBOT AI ========== -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+            <span class="chatbot-notification" id="chatNotification">1</span>
+        </button>
+        
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h6><i class="fas fa-robot me-2"></i>Asisten Budaya AI</h6>
+                <button class="btn-close-chat" onclick="toggleChatbot()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatMessages">
+                <!-- Messages akan dimuat via JavaScript -->
+            </div>
+            
+            <div class="chatbot-input">
+                <input type="text" id="chatInput" placeholder="Ketik pesan..." onkeypress="handleChatKeypress(event)">
+                <button onclick="sendChatMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MODAL DETAIL ========== -->
+    <div class="modal fade" id="detailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Detail</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Konten modal akan dimuat via JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SCRIPT LIBRARIES ========== -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- JavaScript Kustom -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etika AI | AI Nusantara</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    
+    <!-- CSS Kustom -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/2173/2173475.png">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Etika AI & Tanggung Jawab Digital: Prinsip-prinsip etika dalam pengembangan kecerdasan artifisial untuk kebaikan bersama">
+    <meta name="keywords" content="Etika AI, Tanggung Jawab Digital, Transparansi, Keadilan, Privasi, AI Nusantara">
+    <meta name="author" content="Tim AI Nusantara">
+</head>
+<body class="light-mode">
+    <!-- ========== VIDEO BACKGROUND ========== -->
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="indonesia.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- ========== THEME TOGGLE ========== -->
+    <div class="theme-toggle">
+        <button id="themeToggle" class="btn-theme-toggle">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <!-- ========== NAVIGASI ========== -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-robot me-2"></i>AI Nusantara
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="budaya.html">AI & Budaya</a></li>
+                    <li class="nav-item"><a class="nav-link" href="energi.html">Energi Terbarukan</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="etika.html">Etika AI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="artikel.html">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="proyek.html">Proyek</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-success ms-2" href="energi.html#kalkulator">
+                            <i class="fas fa-calculator"></i> Kalkulator
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== ETIKA AI ========== -->
+    <section id="etika" class="section-padding">
+        <div class="container">
+            <h2 class="text-center section-title mb-5" data-aos="fade-up">
+                <i class="fas fa-balance-scale me-2"></i>Etika AI & Tanggung Jawab Digital
+            </h2>
+            
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="lead">Kecerdasan Artifisial harus dikembangkan dengan prinsip etika yang kuat untuk memastikan manfaatnya bagi semua lapisan masyarakat. Kami berkomitmen untuk transparansi, keadilan, dan tanggung jawab dalam setiap inovasi AI.</p>
+                </div>
+            </div>
+            
+            <!-- Prinsip Etika -->
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="ethics-card">
+                        <div class="ethics-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h5>Transparansi</h5>
+                        <p>AI harus dapat menjelaskan keputusannya dan prosesnya secara jelas</p>
+                        <button class="btn btn-outline-primary btn-sm mt-3" onclick="showEthicsDetail('transparency')">Pelajari Lebih Lanjut</button>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ethics-card">
+                        <div class="ethics-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h5>Privasi</h5>
+                        <p>Melindungi data pribadi dan hak privasi pengguna</p>
+                        <button class="btn btn-outline-primary btn-sm mt-3" onclick="showEthicsDetail('privacy')">Pelajari Lebih Lanjut</button>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="ethics-card">
+                        <div class="ethics-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h5>Keadilan</h5>
+                        <p>Menghindari bias dalam algoritma dan memastikan kesetaraan</p>
+                        <button class="btn btn-outline-primary btn-sm mt-3" onclick="showEthicsDetail('fairness')">Pelajari Lebih Lanjut</button>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="ethics-card">
+                        <div class="ethics-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5>Tanggung Jawab</h5>
+                        <p>Pengembang AI bertanggung jawab atas dampak teknologi</p>
+                        <button class="btn btn-outline-primary btn-sm mt-3" onclick="showEthicsDetail('accountability')">Pelajari Lebih Lanjut</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Simulator Bias AI -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card shadow">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0"><i class="fas fa-brain me-2"></i>Simulator Bias AI</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-4">Test potensi bias dalam AI terhadap topik budaya lokal. Pilih topik dan lihat bagaimana AI mungkin menunjukkan bias.</p>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="cultureTopic" class="form-label">Pilih Topik Budaya:</label>
+                                        <select class="form-select" id="cultureTopic">
+                                            <option value="">Pilih topik...</option>
+                                            <option value="batik">Batik</option>
+                                            <option value="wayang">Wayang Kulit</option>
+                                            <option value="gamelan">Gamelan</option>
+                                            <option value="bahasa">Bahasa Daerah</option>
+                                            <option value="kuliner">Kuliner Tradisional</option>
+                                        </select>
+                                    </div>
+                                    <button class="btn btn-primary" onclick="testBias()">
+                                        <i class="fas fa-flask me-2"></i>Test Bias AI
+                                    </button>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div id="biasResult" class="bias-result">
+                                        <h6>Hasil Test Bias:</h6>
+                                        <div id="resultContent">
+                                            <p class="text-muted">Pilih topik dan klik "Test Bias AI" untuk melihat hasil.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <h6>Tips Mengurangi Bias AI:</h6>
+                                <ul class="tips-list">
+                                    <li><i class="fas fa-check-circle text-success me-2"></i>Gunakan dataset yang beragam dan representatif</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i>Libatkan ahli budaya lokal dalam pengembangan</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i>Lakukan audit reguler terhadap algoritma</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i>Transparansi dalam proses pengambilan keputusan AI</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Disclaimer -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        <h6><i class="fas fa-info-circle me-2"></i>Disclaimer</h6>
+                        <p class="mb-0">Konten ini sebagian dikembangkan dengan bantuan AI dan telah diverifikasi oleh siswa untuk akurasi. AI adalah alat, bukan pengganti penilaian manusia. Kami berkomitmen melindungi kekayaan intelektual budaya.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="footer-brand">
+                        <i class="fas fa-robot me-2"></i>AI Nusantara
+                    </h4>
+                    <p class="footer-desc">Inisiatif pendidikan yang mengintegrasikan kecerdasan artifisial, pelestarian budaya, dan energi terbarukan untuk pembangunan berkelanjutan di Jawa Timur, Indonesia.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" onclick="shareSocial('twitter')"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" onclick="shareSocial('instagram')"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" onclick="shareSocial('github')"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link" onclick="shareSocial('youtube')"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right me-2"></i>Beranda</a></li>
+                        <li><a href="budaya.html"><i class="fas fa-chevron-right me-2"></i>AI & Budaya</a></li>
+                        <li><a href="energi.html"><i class="fas fa-chevron-right me-2"></i>Energi Terbarukan</a></li>
+                        <li><a href="etika.html"><i class="fas fa-chevron-right me-2"></i>Etika AI</a></li>
+                        <li><a href="artikel.html"><i class="fas fa-chevron-right me-2"></i>Artikel</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Kontak & Kolaborasi</h5>
+                    <div class="contact-info">
+                        <p><i class="fas fa-school me-2"></i>SMAN 5 Taruna Brawijaya</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i>Jawa Timur, Indonesia</p>
+                        <p><i class="fas fa-envelope me-2"></i>ai.nusantara@education.id</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <button class="btn btn-outline-light btn-sm" onclick="contactForm()">
+                            <i class="fas fa-envelope me-1"></i>Kirim Pesan
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <small>&copy; 2023 AI Nusantara Initiative. Semua hak dilindungi.</small>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <small>
+                            Dibuat dengan <i class="fas fa-heart text-danger"></i> oleh Siswa SMAN 5 Taruna Brawijaya
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== CHATBOT AI ========== -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+            <span class="chatbot-notification" id="chatNotification">1</span>
+        </button>
+        
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h6><i class="fas fa-robot me-2"></i>Asisten Budaya AI</h6>
+                <button class="btn-close-chat" onclick="toggleChatbot()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatMessages">
+                <!-- Messages akan dimuat via JavaScript -->
+            </div>
+            
+            <div class="chatbot-input">
+                <input type="text" id="chatInput" placeholder="Ketik pesan..." onkeypress="handleChatKeypress(event)">
+                <button onclick="sendChatMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MODAL DETAIL ========== -->
+    <div class="modal fade" id="detailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Detail</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Konten modal akan dimuat via JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SCRIPT LIBRARIES ========== -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- JavaScript Kustom -->
+    <script src="script.js"></script>
+</body>
+</html>

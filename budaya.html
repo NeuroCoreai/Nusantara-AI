@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Budaya | AI Nusantara</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    
+    <!-- CSS Kustom -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/2173/2173475.png">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="AI & Budaya Jawa Timur: Menggunakan kecerdasan artifisial untuk melestarikan kekayaan budaya Jawa Timur melalui solusi digital inovatif">
+    <meta name="keywords" content="AI, Budaya Jawa Timur, Batik, Bahasa Daerah, Arsip Digital, Museum Virtual">
+    <meta name="author" content="Siswa SMAN 5 Taruna Brawijaya">
+    
+    <style>
+        /* CSS tambahan khusus untuk halaman budaya */
+        .budaya-hero {
+            background: linear-gradient(rgba(30, 86, 49, 0.9), rgba(42, 157, 143, 0.8));
+            color: white;
+            padding: 40px 0;
+            margin-top: 70px;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        .budaya-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <!-- ========== VIDEO BACKGROUND ========== -->
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="indonesia.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- ========== THEME TOGGLE ========== -->
+    <div class="theme-toggle">
+        <button id="themeToggle" class="btn-theme-toggle">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <!-- ========== NAVIGASI ========== -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-robot me-2"></i>AI Nusantara
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="budaya.html">AI & Budaya</a></li>
+                    <li class="nav-item"><a class="nav-link" href="energi.html">Energi Terbarukan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="etika.html">Etika AI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="artikel.html">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="proyek.html">Proyek</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-success ms-2" href="energi.html#kalkulator">
+                            <i class="fas fa-calculator"></i> Kalkulator
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO BUDAYA ========== -->
+    <section class="budaya-hero budaya-pattern">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold mb-3">
+                        <i class="fas fa-hands-helping me-3"></i>AI & Budaya Jawa Timur
+                    </h1>
+                    <p class="lead mb-4">
+                        Menggunakan kecerdasan artifisial untuk melestarikan kekayaan budaya Jawa Timur melalui solusi digital inovatif.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <button class="btn btn-light btn-lg" onclick="showDemo()">
+                            <i class="fas fa-play-circle me-2"></i>Lihat Demo AI
+                        </button>
+                        <button class="btn btn-outline-light btn-lg" onclick="scrollToExplorer()">
+                            <i class="fas fa-compass me-2"></i>Jelajahi Budaya
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center" data-aos="fade-left">
+                    <i class="fas fa-landmark fa-10x text-white opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== AI & BUDAYA ========== -->
+    <section id="budaya" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6" data-aos="fade-right">
+                    <h2 class="section-title">
+                        <i class="fas fa-brain me-2"></i>Penjaga Digital Warisan Nusantara
+                    </h2>
+                    
+                    <div class="features-list mt-4">
+                        <div class="feature-item mb-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Pengenalan Pola Batik</h5>
+                                <p>Algoritma machine learning mengidentifikasi dan mengklasifikasikan pola Batik tradisional Jawa Timur dengan akurasi tinggi.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item mb-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Pelestarian Bahasa Daerah</h5>
+                                <p>Teknologi speech-to-text dan NLP mendokumentasikan bahasa Jawa dan Madura untuk generasi mendatang.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item mb-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-vr-cardboard"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h5>Arsip Digital 3D</h5>
+                                <p>Museum virtual untuk artefak budaya seperti <em>Wayang Kulit</em> dan alat musik tradisional dengan teknologi 3D scanning.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <button class="btn btn-primary btn-lg" onclick="showDemo()">
+                            <i class="fas fa-play-circle me-2"></i>Coba Demo AI Sekarang
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-header bg-success text-white py-3">
+                            <h5 class="mb-0"><i class="fas fa-map-marked-alt me-2"></i>Penjelajah Budaya Jawa Timur</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted mb-3">Klik gambar untuk melihat detail budaya masing-masing daerah:</p>
+                            
+                            <div class="row row-cols-2 row-cols-md-3 g-3" id="budayaExplorer">
+                                <!-- Budaya items akan dimuat via JavaScript -->
+                                <div class="col">
+                                    <div class="budaya-item-loading">
+                                        <div class="spinner-border text-success" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-info mt-4">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <small>Total 6 budaya Jawa Timur yang dapat dieksplorasi. Setiap budaya memiliki detail dan implementasi AI yang unik.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Demo AI Budaya -->
+            <div class="row mt-5" id="demoBudaya" style="display: none;" data-aos="fade-up">
+                <div class="col-12">
+                    <div class="card shadow border-0">
+                        <div class="card-header bg-primary text-white py-3">
+                            <h5 class="mb-0"><i class="fas fa-robot me-2"></i>Demo Interaktif: Pengenalan Pola Batik dengan AI</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                                    <div class="pattern-container">
+                                        <div class="pattern-box" id="patternBox">
+                                            <!-- Patterns will be generated by JS -->
+                                        </div>
+                                        <p class="mt-3 mb-2"><strong>Pola Batik Simulasi</strong></p>
+                                        <p class="text-muted small">AI akan menganalisis pola warna dan bentuk ini</p>
+                                        
+                                        <div class="d-grid gap-2 mt-3">
+                                            <button class="btn btn-outline-primary" onclick="generateNewPattern()">
+                                                <i class="fas fa-redo me-2"></i>Generate Pola Baru
+                                            </button>
+                                            <button class="btn btn-outline-secondary" onclick="explainPattern()">
+                                                <i class="fas fa-question-circle me-2"></i>Cara Kerja AI
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-8">
+                                    <div class="demo-content">
+                                        <h5 class="mb-3">Hasil Analisis AI:</h5>
+                                        <div class="result-box" id="aiResult">
+                                            <div class="text-center py-5">
+                                                <i class="fas fa-search fa-4x mb-3 text-muted"></i>
+                                                <h5>Analisis Pola Batik</h5>
+                                                <p>Tekan tombol "Analisis dengan AI" untuk memulai analisis pola Batik tradisional Jawa Timur.</p>
+                                                <div class="alert alert-warning">
+                                                    <i class="fas fa-lightbulb me-2"></i>
+                                                    AI akan mengidentifikasi pola, warna dominan, dan makna filosofis.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="d-flex flex-wrap gap-3 mt-4">
+                                            <button class="btn btn-success btn-lg" onclick="analyzePattern()">
+                                                <i class="fas fa-search me-2"></i>Analisis dengan AI
+                                            </button>
+                                            <button class="btn btn-outline-secondary btn-lg" onclick="resetAnalysis()">
+                                                <i class="fas fa-redo me-2"></i>Reset Analisis
+                                            </button>
+                                            <button class="btn btn-outline-info" onclick="saveAnalysis()">
+                                                <i class="fas fa-save me-2"></i>Simpan Hasil
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="progress-info mt-3" id="progressInfo" style="display: none;">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                                                     id="analysisProgress" style="width: 0%"></div>
+                                            </div>
+                                            <p class="text-center mt-2 small" id="progressText">Menganalisis pola...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h6><i class="fas fa-cogs me-2"></i>Teknologi yang Digunakan</h6>
+                                            <div class="tech-tags">
+                                                <span class="badge bg-primary me-1 mb-1">Computer Vision</span>
+                                                <span class="badge bg-success me-1 mb-1">Machine Learning</span>
+                                                <span class="badge bg-info me-1 mb-1">Pattern Recognition</span>
+                                                <span class="badge bg-warning me-1 mb-1">Color Analysis</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h6><i class="fas fa-chart-line me-2"></i>Statistik Analisis</h6>
+                                            <div class="row text-center">
+                                                <div class="col-4">
+                                                    <h4 class="text-primary" id="statAccuracy">0%</h4>
+                                                    <small>Akurasi</small>
+                                                </div>
+                                                <div class="col-4">
+                                                    <h4 class="text-success" id="statPatterns">0</h4>
+                                                    <small>Pola</small>
+                                                </div>
+                                                <div class="col-4">
+                                                    <h4 class="text-info" id="statTime">0s</h4>
+                                                    <small>Waktu</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="footer-brand">
+                        <i class="fas fa-robot me-2"></i>AI Nusantara
+                    </h4>
+                    <p class="footer-desc">Inisiatif pendidikan yang mengintegrasikan kecerdasan artifisial, pelestarian budaya, dan energi terbarukan untuk pembangunan berkelanjutan di Jawa Timur, Indonesia.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" onclick="shareSocial('twitter')"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" onclick="shareSocial('instagram')"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" onclick="shareSocial('github')"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link" onclick="shareSocial('youtube')"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right me-2"></i>Beranda</a></li>
+                        <li><a href="budaya.html"><i class="fas fa-chevron-right me-2"></i>AI & Budaya</a></li>
+                        <li><a href="energi.html"><i class="fas fa-chevron-right me-2"></i>Energi Terbarukan</a></li>
+                        <li><a href="etika.html"><i class="fas fa-chevron-right me-2"></i>Etika AI</a></li>
+                        <li><a href="artikel.html"><i class="fas fa-chevron-right me-2"></i>Artikel</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">Kontak & Kolaborasi</h5>
+                    <div class="contact-info">
+                        <p><i class="fas fa-school me-2"></i>SMAN 5 Taruna Brawijaya</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i>Jawa Timur, Indonesia</p>
+                        <p><i class="fas fa-envelope me-2"></i>ai.nusantara@education.id</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <button class="btn btn-outline-light btn-sm" onclick="contactForm()">
+                            <i class="fas fa-envelope me-1"></i>Kirim Pesan
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <small>&copy; 2023 AI Nusantara Initiative. Semua hak dilindungi.</small>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <small>
+                            Dibuat dengan <i class="fas fa-heart text-danger"></i> oleh Siswa SMAN 5 Taruna Brawijaya
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== CHATBOT AI ========== -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+            <span class="chatbot-notification" id="chatNotification">1</span>
+        </button>
+        
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <h6><i class="fas fa-robot me-2"></i>Asisten Budaya AI</h6>
+                <button class="btn-close-chat" onclick="toggleChatbot()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatMessages">
+                <!-- Messages akan dimuat via JavaScript -->
+            </div>
+            
+            <div class="chatbot-input">
+                <input type="text" id="chatInput" placeholder="Ketik pesan..." onkeypress="handleChatKeypress(event)">
+                <button onclick="sendChatMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MODAL DETAIL ========== -->
+    <div class="modal fade" id="detailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Detail Budaya</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Konten modal akan dimuat via JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary" onclick="tryDemoFromModal()">
+                        <i class="fas fa-play-circle me-2"></i>Coba Demo AI
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SCRIPT LIBRARIES ========== -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- JavaScript Kustom -->
+    <script src="script.js"></script>
+    
+    <script>
+        // Inisialisasi AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Load data budaya saat halaman siap
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                if (typeof loadBudayaData === 'function') {
+                    loadBudayaData();
+                }
+                // Set stat awal
+                updateStats();
+            }, 500);
+        });
+        
+        function scrollToExplorer() {
+            const explorer = document.querySelector('#budayaExplorer');
+            if (explorer) {
+                explorer.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function updateStats() {
+            document.getElementById('statAccuracy').textContent = '92%';
+            document.getElementById('statPatterns').textContent = '24';
+            document.getElementById('statTime').textContent = '0.8s';
+        }
+        
+        function tryDemoFromModal() {
+            const modal = bootstrap.Modal.getInstance(document.getElementById('detailModal'));
+            if (modal) {
+                modal.hide();
+            }
+            setTimeout(() => {
+                showDemo();
+            }, 300);
+        }
+        
+        function explainPattern() {
+            Swal.fire({
+                title: 'Cara Kerja AI Menganalisis Batik',
+                html: `
+                    <div class="text-start">
+                        <h6>Proses Analisis:</h6>
+                        <ol class="text-start">
+                            <li><strong>Image Processing:</strong> AI memproses gambar pola batik</li>
+                            <li><strong>Feature Extraction:</strong> Mengekstrak ciri warna, bentuk, dan tekstur</li>
+                            <li><strong>Pattern Matching:</strong> Mencocokkan dengan database pola tradisional</li>
+                            <li><strong>Classification:</strong> Mengklasifikasikan jenis dan asal batik</li>
+                            <li><strong>Interpretation:</strong> Memberikan makna filosofis</li>
+                        </ol>
+                        <p class="mt-3"><small>Teknologi: Computer Vision + Machine Learning</small></p>
+                    </div>
+                `,
+                icon: 'info',
+                confirmButtonText: 'Mengerti'
+            });
+        }
+        
+        function saveAnalysis() {
+            Swal.fire({
+                title: 'Simpan Hasil Analisis',
+                text: 'Hasil analisis akan disimpan ke database budaya Jawa Timur',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonText: 'Simpan',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire('Tersimpan!', 'Hasil analisis berhasil disimpan.', 'success');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
